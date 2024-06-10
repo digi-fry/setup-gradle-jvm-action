@@ -21,17 +21,18 @@ runs:
     - uses: actions/checkout@v4
     - uses: gradle/wrapper-validation-action@v2
 
+    - name: Make Gradle Wrapper Executable
+      shell: bash
+      run: chmod +x ./gradlew
+
     - name: Use JDK ${{ inputs.jdk-version }}
+      id: cache
       uses: actions/setup-java@v4
       with:
         java-version: ${{ inputs.jdk-version }}
         java-package: 'jdk'
         distribution: 'temurin'
         cache: 'gradle'
-
-    - name: Make Gradle Wrapper Executable
-      shell: bash
-      run: chmod +x ./gradlew
 
     - name: Build Project
       shell: bash
