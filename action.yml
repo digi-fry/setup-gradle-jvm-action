@@ -25,19 +25,13 @@ runs:
       uses: actions/setup-java@v4
       with:
         java-version: ${{ inputs.jdk-version }}
+        java-package: 'jdk'
         distribution: 'temurin'
         cache: 'gradle'
 
     - name: Make Gradle Wrapper Executable
       shell: bash
       run: chmod +x ./gradlew
-
-    - name: Setup Gradle Cache
-      id: cache
-      uses: actions/cache@v4
-      with:
-        path: ~/.gradle/caches
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
 
     - name: Build Project
       shell: bash
