@@ -36,8 +36,7 @@ on:
       - synchronize
 
 env:
-  NODE_VERSION: 20
-  PNPM_VERSION: 9
+  JVM_VERSION: 21
 
 jobs:
   cache-and-install:
@@ -47,10 +46,10 @@ jobs:
 
     steps:
       - name: Setup Cache and Install Dependencies
-        uses: digi-fry/setup-pnpm-node-action@v1
+        uses: digi-fry/setup-gradle-jvm-action@v1
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
+          node-version: ${{ env.JVM_VERSION }}
+          install-gradle: "true"
 ```
 
 ## License
