@@ -1,20 +1,20 @@
-# Setup PNPM and Node.js Action
+# Setup Gradle JVM Action
 
-This GitHub Action sets up a specific version of Node.js and PNPM, installs dependencies, and sets up a cache for PNPM.
+This action sets up a JDK and optionally installs Gradle for use in actions by:
 
 ## Usage
 
 ```yaml
-- uses: digi-fry/setup-pnpm-node-action@v1
+- uses: digi-fry/setup-gradle-jvm-action@v1
   with:
-    node-version: '20'
-    pnpm-version: '9'
+    jdk-version: '21'
+    install-gradle: 'true'
 ```
 
 ## Inputs
 
-* `node-version`: (Required) The version of Node.js to use. This should be a valid Node.js version.
-* `pnpm-version`: (Required) The version of PNPM to use. This should be a valid PNPM version.
+* `jdk-version`: (Required) The version of the JDK to install. This should be a string value.
+* `install-gradle`: (Optional) Whether to install Gradle or not. This should be a boolean value.
 
 ## Outputs
 
